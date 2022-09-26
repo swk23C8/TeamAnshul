@@ -1,6 +1,7 @@
 # TeamAnshul
 
 ## Team Members
-* Sunwook Kim - n10370943
-* Michael Jones - n11039299
-* Rj Otadoy
+
+- Sunwook Kim - n10370943
+- Michael Jones - n11039299
+- Rj Otadoy - n11003791
