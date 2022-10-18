@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateField, DateTimeField, DateTimeLocalField, IntegerField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
 ALLOWED_FILE = {'PNG','JPG','png','jpg'}
+
 
 #Create new destination
 class DestinationForm(FlaskForm):
@@ -15,11 +16,11 @@ class DestinationForm(FlaskForm):
     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
   currency = StringField('Currency', validators=[InputRequired()])
   #Have to change fields and add vars in class in models.py
-  #ticket_num = StringField('Number of Tickets:', validators=[InputRequired()])
-  #ticket_Price = StringField('Price of Each Ticket:', validators=[InputRequired()])
-  #event_date = StringField('When is this Event Happening?', validators=[InputRequired()])
+  #ticket_num = IntegerField('Number of Tickets:', validators=[InputRequired()])
+  #ticket_Price = IntegerField('Price of Each Ticket:', validators=[InputRequired()])
+  #event_date = DateTimeLocalField('When is this Event Happening?', validators=[InputRequired('Enter Time Only'), Length(max=3) ])
   #starting_date = StringField('When are tickets opening?', validators=[InputRequired()])
-  #closing_date = StringField('When are tickets closing?', validators=[InputRequired()])
+  #closing_date = StringField('When are tickets closing?',render_kw={"placeholder": "Closing Date"}, validators=[InputRequired(),Length(1, 64)])
   submit = SubmitField("Create")
     
 #User login
