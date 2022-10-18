@@ -6,6 +6,7 @@ import os
 from werkzeug.utils import secure_filename
 #additional import:
 from flask_login import login_required, current_user
+from flask.json import jsonify
 
 bp = Blueprint('destination', __name__, url_prefix='/destinations')
 
@@ -70,4 +71,35 @@ def comment(destination):
       print('Your comment has been added', 'success') 
     # using redirect sends a GET request to destination.show
     return redirect(url_for('destination.show', id=destination))
-    
+  
+  
+  
+  # Deleting the destination
+@bp.route('/delete/<id>', methods = ['GET','DELETE'])
+@login_required
+def delete_show(id):
+  
+  if str(id) == str(current_user.id):
+    destination = Destination.query.filter_by(id=id).first()
+    # create the comment form
+    db.session.delete(destination)
+    db.session.commit()  
+    return jsonify(message='deleted destination'), 200
+  
+  else:
+      print(id)
+      print(current_user.id)
+      return jsonify(message='To delete this, you must be the creator of this Event.'), 200
+
+      
+      
+  # Updating the destination
+@bp.route('/update/<id>', methods = ['GET', 'PUT'])
+@login_required
+def update_show(id):
+    # create the comment form
+    json_dict = request.get_json()
+    destination = Destination.query.filter_by(id=id).first()
+    destination.name = json_dict['name']
+    db.session.commit() 
+    return jsonify(message='Updated destination'), 200    
