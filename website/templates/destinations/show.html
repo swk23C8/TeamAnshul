@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% import "bootstrap/form.html" as wtf %}
-
 {% block content %}
 
 <div class="container">  
@@ -9,7 +8,7 @@
       <div class="col-md-12">  
         <div class="float-left">  
           <h1 class="mb-0">{{destination.name}}</h1>  
-          <p>Popular Destination</p>  
+          <p>Popular Events</p>  
         </div>  
  
         <div class="float-right text-right">  
@@ -29,8 +28,22 @@
               <div class="media-body">  
                 <small class="font-weight-bold text-muted">Stay 2 nights</small>  
                 <h5 class="mt-0">{{destination.name}}</h5>  
-                <p>{{destination.description}}</p>  
-                <a href="#" class="btn btn-danger">Book Now</a>  
+                <p>{{destination.description}}</p>
+                
+
+
+                {% if current_user.is_authenticated %}
+                  <a href="#" class="btn btn-danger">Book Now</a>
+
+                  {% if id_checker == current_user_checker %}
+                    <a href="{{ url_for('auth.register') }}">Delete Event</a>
+                  {% endif %}
+
+                {% else %}
+                  <p>You Must be Logged In to book this event</p>
+                {% endif %}
+
+                
               </div>  
             </div>  
           </div>  
@@ -38,7 +51,8 @@
       </div>  
     </div>     
  
-   
+
+
  
     <hr>  
  

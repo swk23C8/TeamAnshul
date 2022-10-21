@@ -2,12 +2,12 @@
 
 {% import "bootstrap/form.html" as wtf %}
 {% block content %}
-  <div class="container">
+  <div class="container" style = "background-color: #F3F3F3;  box-shadow: 20px 20px 20px lightgrey; border-radius: 25px;">
     <div class="row mt-5">
       <div class="col-md-12">
 
         <h1>Create an Event:</h1>
-        <p>Please enter your Event's details below. <br><b>Ensure All Are Filled.</b></br></p>
+        <p>Please enter your Event's details below. <br><b>Ensure All Fields Are Filled.</b></br></p>
 
         {{wtf.render_form(form)}}
         

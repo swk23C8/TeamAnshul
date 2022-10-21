@@ -25,8 +25,20 @@ def create():
   if form.validate_on_submit():
     #call the function that checks and returns image
     db_file_path=check_upload_file(form)
-    destination=Destination(name=form.name.data,description=form.description.data, 
-    image=db_file_path,currency=form.currency.data)
+    
+    
+    
+    destination=Destination(name=form.name.data,
+    description=form.description.data, 
+    image=db_file_path
+    ,ticket_num=form.ticket_num.data
+    ,ticket_price=form.ticket_price.data
+    ,Event_status=form.Event_status.data)   
+    
+    
+    
+    
+    
     # add the object to the db session
     db.session.add(destination)
     # commit to the database
@@ -72,6 +84,8 @@ def comment(destination):
     # using redirect sends a GET request to destination.show
     return redirect(url_for('destination.show', id=destination))
   
+
+  
   
   
   # Deleting the destination
@@ -80,11 +94,14 @@ def comment(destination):
 def delete_show(id):
   
   if str(id) == str(current_user.id):
+    print(id)
+    print(current_user.id)
     destination = Destination.query.filter_by(id=id).first()
     # create the comment form
     db.session.delete(destination)
-    db.session.commit()  
+    db.session.commit()
     return jsonify(message='deleted destination'), 200
+    
   
   else:
       print(id)
@@ -97,9 +114,22 @@ def delete_show(id):
 @bp.route('/update/<id>', methods = ['GET', 'PUT'])
 @login_required
 def update_show(id):
-    # create the comment form
     json_dict = request.get_json()
     destination = Destination.query.filter_by(id=id).first()
     destination.name = json_dict['name']
     db.session.commit() 
     return jsonify(message='Updated destination'), 200    
+  
+  
+  
+  #Converting into a JSON dict
+@bp.route('/update')
+@login_required
+def get_event(id):
+  events = Destination.query.all()
+  event_list = [D.to_dictionary() for D in events]
+  return jsonify(events=event_list) 
+  
+def to_dictionary(self):
+  h_dict = {b.name: str(getattr(self, b.name)) for b in self.destinations.columns}
+  return h_dict

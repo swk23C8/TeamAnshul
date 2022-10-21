@@ -60,27 +60,24 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
               </li>
+                {% if current_user.is_authenticated %}
+                  <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
+             
+                {% else %}
+                  <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
+                <li class="nav-item">
+                  <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Log In</a>
+                </li>
+                
+                {% endif %}
+            
               <li class="nav-item">
-                <a class="nav-link" href="#">Q&A</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
+                <a class="nav-link" href="#">Contact Us?</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
+            <form class="form-inline d-flex flex-nowrap" action="{{url_for('main.search')}}" >
+              <input type="text" name="search" class="form-control me-2" id="SearchForm">
+              <button type="submit" class="btn btn-outline-success">Submit</button>
             </form>
           </div>
         </div>
@@ -118,7 +115,7 @@
             <ul class="list-unstyled text-small">
               <li class="mb-1">
                 <a class="link-secondary text-decoration-none" href="#"
-                  >Frequently Asked Questions</a
+                  >Login In</a
                 >
               </li>
               <li class="mb-1">

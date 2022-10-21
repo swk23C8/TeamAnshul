@@ -22,13 +22,21 @@ class Destination(db.Model):
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
-    currency = db.Column(db.String(3))
+    #Additional fields neccessary to store in events db
+    ticket_num = db.Column(db.Integer())
+    ticket_price = db.Column(db.Integer())
+    #event_date = db.Column(db.DateField(1000))
+    #starting_date = db.Column(db.DateField(1000))
+    #closing_date = db.Column(db.DateField(1000))
+    
+    Event_status = db.Column(db.String(100))
+    
     # ... Create the Comments db.relationship
 	# relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='destination')
 
     
-	
+
     def __repr__(self): #string print method
         return "<Name: {}>".format(self.name)
 
