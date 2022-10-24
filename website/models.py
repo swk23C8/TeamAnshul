@@ -13,28 +13,33 @@ class User(db.Model, UserMixin):
 
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='user')
+    
+    # User can have many posts
+    posts = db.relationship('Destination', backref='poster')
 
 
 
 class Destination(db.Model):
     __tablename__ = 'destinations'
     id = db.Column(db.Integer, primary_key=True)
+    # Name can be taken out ; 'author'
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     #Additional fields neccessary to store in events db
     ticket_num = db.Column(db.Integer())
     ticket_price = db.Column(db.Integer())
-    #event_date = db.Column(db.DateField(1000))
-    #starting_date = db.Column(db.DateField(1000))
-    #closing_date = db.Column(db.DateField(1000))
-    
+    event_date = db.Column(db.DateTime)
+    starting_date = db.Column(db.DateTime)
+    closing_date = db.Column(db.DateTime)
     Event_status = db.Column(db.String(100))
     
+    # Foreign Key to Lnk Users (refer to primary)
+    #Reason why user is lower cased is due to it being actually referred to the db. 
+    poster_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     # ... Create the Comments db.relationship
 	# relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='destination')
-
     
 
     def __repr__(self): #string print method

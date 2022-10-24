@@ -55,7 +55,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Why Us?</a>
+                <a class="nav-link" href="{{ url_for('destination.create') }}">Create Destination</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
@@ -114,8 +114,8 @@
             <h5>Resources</h5>
             <ul class="list-unstyled text-small">
               <li class="mb-1">
-                <a class="link-secondary text-decoration-none" href="#"
-                  >Login In</a
+                <a class="link-secondary text-decoration-none" href="{{ url_for('auth.login') }}"
+                  >Login</a
                 >
               </li>
               <li class="mb-1">
