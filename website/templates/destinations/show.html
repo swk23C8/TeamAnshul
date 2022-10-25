@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% import "bootstrap/form.html" as wtf %}
+
 {% block content %}
 
 <div class="container">  
@@ -35,9 +36,8 @@
                 {% if current_user.is_authenticated %}
                   <a href="#" class="btn btn-danger">Book Now</a>
 
-                  {% if id_checker == current_user_checker %}
-                    <a href="#">Delete Event</a>
-                  {% endif %}
+
+                  <a href="#">Delete Event</a>
 
                 {% else %}
                   <p>You Must be Logged In to book this event</p>

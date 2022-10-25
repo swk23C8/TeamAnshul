@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import Destination, Comment
-from .forms import DestinationForm, CommentForm
+from .forms import DestinationForm, CommentForm, BookingForm
 from . import db, app
 import os
 from werkzeug.utils import secure_filename
@@ -36,7 +36,7 @@ def create():
     ,starting_date=form.starting_date.data
     ,closing_date=form.closing_date.data
     ,Event_status=form.Event_status.data
-    ,poster_id=current_user)
+    ,poster=current_user)
         
 
     # add the object to the db session
@@ -86,16 +86,18 @@ def comment(destination):
     return redirect(url_for('destination.show', id=destination))
   
 
-  
+
   
   
   # Deleting the destination
-@bp.route('/delete/<id>', methods = ['GET','DELETE'])
+@bp.route('/delete/<int:id>', methods = ['GET','DELETE'])
 @login_required
 def delete_show(id):
+  post_to_delete = Destination.query.get_or_404(id).id
   id = current_user.id
-  post_to_delete = Destination.query.get_or_404(id)
-  if id == post_to_delete.poster.id:
+  print(id)
+  print(post_to_delete)
+  if id == post_to_delete:
 
     destination = Destination.query.filter_by(id=id).first()
     # create the comment form
@@ -107,9 +109,47 @@ def delete_show(id):
   else:
       return jsonify(message='To delete this, you must be the creator of this Event.'), 200
 
+# Updating the destination (Youtube Edition)
+#interfaceError
+@bp.route('/edit/<int:id>', methods = ['GET','POST'])
+@login_required
+def edit_post(id):
+  post = Destination.query.get_or_404(id)
+  form = DestinationForm()
+  if form.validate_on_submit():
+    post.name = form.name.data
+    post.description = form.description.data
+    post.image = form.image.data
+    post.ticket_num = form.ticket_num.data
+    post.ticket_price = form.ticket_price.data
+    post.event_date = form.event_date.data
+    post.starting_date = form.starting_date.data
+    post.closing_date = form.closing_date.data
+    post.Event_status = form.Event_status.data
+    # Update Database
+    db.session.add(post) 
+    db.session.commit()
+    flash("Post Has Been Updated.")
+    return redirect(url_for('destinations', id=post.id))
+  form.name.data = post.name
+  form.description.data = post.description
+  form.image.data = post.image
+  form.ticket_num.data = post.ticket_num
+  form.ticket_price.data = post.ticket_price
+  form.event_date.data = post.event_date
+  form.starting_date.data = post.starting_date
+  form.closing_date.data = post.closing_date
+  form.Event_status.data = post.Event_status
+  return render_template('edit_event.html', form=form)
+
+
+
+    
+    
+    
+  
       
-      
-  # Updating the destination
+#  # Updating the destination
 #@bp.route('/update/<id>', methods = ['GET', 'PUT'])
 #@login_required
 #def update_show(id):
@@ -117,12 +157,22 @@ def delete_show(id):
 #    destination = Destination.query.filter_by(id=id).first()
 #    form = Updatedestination()
 #    destination.name = json_dict['name']
-#   if form.validate_on_submit():
+#    if form.validate_on_submit():
+#    
 #      destinations_updated = Destination.query.filter_by(id=id).update(
-#        dict(name=(form.new_event_name.data),
-#             name=(form.new_event_name.data)
+#        dict(name=(form.new_destination_name.data),
+#             description=(form.new_description.data),
+#             image=(form.new_image.data),
+#             ticket_num=(form.new_ticket_num.data),
+#             ticket_price=(form.new_ticket_price.data),
+#             event_date=(form.new_event_date.data),
+#             starting_date=(form.new_starting_date.data),
+#             closing_date=(form.new_closing_date.data),
+#             Event_status=(form.new_Event_status.data),
+#             
 #             ))
-  
+#      
+#    db.session.add(destinations_updated)
 #    db.session.commit() 
 #    return jsonify(message='Updated destination'), 200    
   
