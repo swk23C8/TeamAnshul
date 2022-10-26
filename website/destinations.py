@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 from flask.json import jsonify
 
-bp = Blueprint('destination', __name__, url_prefix='/destinations')
+bp = Blueprint('destination', __name__, url_prefix='/events')
 
 @bp.route('/<id>')
 def show(id):
@@ -109,81 +109,49 @@ def delete_show(id):
   else:
       return jsonify(message='To delete this, you must be the creator of this Event.'), 200
 
-# Updating the destination (Youtube Edition)
-#interfaceError
+# Updating the event 
 @bp.route('/edit/<int:id>', methods = ['GET','POST'])
 @login_required
 def edit_post(id):
-  post = Destination.query.get_or_404(id)
-  form = DestinationForm()
-  if form.validate_on_submit():
-    post.name = form.name.data
-    post.description = form.description.data
-    post.image = form.image.data
-    post.ticket_num = form.ticket_num.data
-    post.ticket_price = form.ticket_price.data
-    post.event_date = form.event_date.data
-    post.starting_date = form.starting_date.data
-    post.closing_date = form.closing_date.data
-    post.Event_status = form.Event_status.data
-    # Update Database
-    db.session.add(post) 
-    db.session.commit()
-    flash("Post Has Been Updated.")
-    return redirect(url_for('destinations', id=post.id))
-  form.name.data = post.name
-  form.description.data = post.description
-  form.image.data = post.image
-  form.ticket_num.data = post.ticket_num
-  form.ticket_price.data = post.ticket_price
-  form.event_date.data = post.event_date
-  form.starting_date.data = post.starting_date
-  form.closing_date.data = post.closing_date
-  form.Event_status.data = post.Event_status
-  return render_template('edit_event.html', form=form)
-
-
-
-    
-    
-    
   
-      
-#  # Updating the destination
-#@bp.route('/update/<id>', methods = ['GET', 'PUT'])
-#@login_required
-#def update_show(id):
-#    json_dict = request.get_json()
-#    destination = Destination.query.filter_by(id=id).first()
-#    form = Updatedestination()
-#    destination.name = json_dict['name']
-#    if form.validate_on_submit():
-#    
-#      destinations_updated = Destination.query.filter_by(id=id).update(
-#        dict(name=(form.new_destination_name.data),
-#             description=(form.new_description.data),
-#             image=(form.new_image.data),
-#             ticket_num=(form.new_ticket_num.data),
-#             ticket_price=(form.new_ticket_price.data),
-#             event_date=(form.new_event_date.data),
-#             starting_date=(form.new_starting_date.data),
-#             closing_date=(form.new_closing_date.data),
-#             Event_status=(form.new_Event_status.data),
-#             
-#             ))
-#      
-#    db.session.add(destinations_updated)
-#    db.session.commit() 
-#    return jsonify(message='Updated destination'), 200    
+  post_to_delete = Destination.query.get_or_404(id).id
+  id = current_user.id
+  print(id)
+  print(post_to_delete)
+  if id == post_to_delete:
+    post = Destination.query.get_or_404(id)
+    form = DestinationForm()
+    if form.validate_on_submit():
+      post.name = form.name.data
+      db_file_path=check_upload_file(form)
+      post.description = form.description.data
+      post.image = db_file_path
+      post.ticket_num = form.ticket_num.data
+      post.ticket_price = form.ticket_price.data
+      post.event_date = form.event_date.data
+      post.starting_date = form.starting_date.data
+      post.closing_date = form.closing_date.data
+      post.Event_status = form.Event_status.data
+      # Update Database
+      db.session.add(post) 
+      db.session.commit()
+      flash("Post Has Been Updated.")
+      return redirect(url_for('destination.show', id=post.id))
+    form.name.data = post.name
+    form.description.data = post.description
+    form.image.data = post.image
+    form.ticket_num.data = post.ticket_num
+    form.ticket_price.data = post.ticket_price
+    form.event_date.data = post.event_date
+    form.starting_date.data = post.starting_date
+    form.closing_date.data = post.closing_date
+    form.Event_status.data = post.Event_status
+    return render_template('edit_event.html', form=form)
+  
+  else:
+    return jsonify(message='To edit this event, you must be the creator of it.'), 200
   
   
-  #Converting into a JSON dict
-#@bp.route('/update')
-#@login_required
-#def get_event(id):
-#  events = Destination.query.all()
-#  event_list = [D.to_dictionary() for D in events]
-#  return jsonify(events=event_list) 
   
 def to_dictionary(self):
   h_dict = {b.name: str(getattr(self, b.name)) for b in self.destinations.columns}
