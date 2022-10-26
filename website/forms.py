@@ -31,8 +31,10 @@ class LoginForm(FlaskForm):
 
 #User register
 class RegisterForm(FlaskForm):
-    user_name=StringField("User Name", validators=[InputRequired()])
-    email_id = StringField("Email Address", validators=[Email("Please enter a valid email")])
+    user_name=StringField("User Name", validators=[InputRequired()], render_kw={"placeholder": "Ex. Example123"})
+    email_id = StringField("Email Address", validators=[Email("Please enter a valid email")], render_kw={"placeholder": "Ex. LisaisCool@example.com.au"})
+    contact_num=StringField("Phone Number", validators=[InputRequired()], render_kw={"placeholder": "Ex. 0434 484 911"})
+    address=StringField("Address", validators=[InputRequired()], render_kw={"placeholder": "Ex. Brisbane City, George Street"})
     
     #linking two fields - password should be equal to data entered in confirm
     password=PasswordField("Password", validators=[InputRequired(),
