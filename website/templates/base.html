@@ -17,7 +17,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">MusicKim</a>
+          <a class="navbar-brand" href="{{ url_for('main.index') }}">MusicKim</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -55,7 +55,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('destination.create') }}">Create Destination</a>
+                <a class="nav-link" href="{{ url_for('destination.create') }}">Create Event</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>

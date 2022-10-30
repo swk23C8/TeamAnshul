@@ -95,15 +95,16 @@ def comment(destination):
 def delete_show(id):
   post_to_delete = Destination.query.get_or_404(id).id
   id = current_user.id
-  print(id)
-  print(post_to_delete)
+
   if id == post_to_delete:
 
     destination = Destination.query.filter_by(id=id).first()
     # create the comment form
     db.session.delete(destination)
     db.session.commit()
-    return jsonify(message='deleted destination'), 200
+    # Notify User and redirect them back to the main page.
+    #flash("Event has been deleted.")
+    return redirect(url_for('main.index'))
     
 
   else:

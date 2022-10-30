@@ -10,6 +10,8 @@
         <p>Please enter your Event's details below. <br><b>Ensure All Fields Are Filled.</b></br></p>
 
         {{wtf.render_form(form)}}
+
+        <a href="{{ url_for('main.index') }}" class="btn btn-danger">Back</a>
         
       </div>
     </div>

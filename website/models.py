@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Destination', backref='poster')
 
 
-
+#Destinations represents Events
 class Destination(db.Model):
     __tablename__ = 'destinations'
     id = db.Column(db.Integer, primary_key=True)

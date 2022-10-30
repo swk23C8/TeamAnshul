@@ -37,7 +37,8 @@
                   <a href="#" class="btn btn-danger">Book Now</a>
 
 
-                  <a href="#">Delete Event</a>
+                  <a class="btn btn" href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a>
+                  <a class="btn btn" href="{{ url_for('destination.edit_post', id=destination.id) }}">Edit Event</a>
 
                 {% else %}
                   <p>You Must be Logged In to book this event</p>

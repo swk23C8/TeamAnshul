@@ -9,7 +9,7 @@ ALLOWED_FILE = {'PNG','JPG','png','jpg'}
 #Create new event 
 class DestinationForm(FlaskForm):
   name = StringField('Event Name:', validators=[InputRequired()], render_kw={"placeholder": "Name of Event"})
-  description = TextAreaField('Description:', validators=[InputRequired()], render_kw={"placeholder": "Name of Event"})
+  description = TextAreaField('Description:', validators=[InputRequired()], render_kw={"placeholder": "Description of Event"})
   image = FileField('Event Image:', validators=[
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
