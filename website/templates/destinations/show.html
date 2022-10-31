@@ -65,7 +65,7 @@
     </div>  
  
     <div class="row border-bottom"> 
-      {{wtf.render_form(form,"/destinations/{0}/comment".format(destination.id))}} 
+      {{wtf.render_form(form,"/events/{0}/comment".format(destination.id))}} 
       {% for comment in destination.comments %}
       <div class="col-md-12">  
         <b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at.strftime("%d %B,%Y")}}</span></b>
