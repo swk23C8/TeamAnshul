@@ -64,5 +64,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return 'You have been logged out'
+    #Returns to the main index page once logged out
+    return redirect(url_for('main.index'))
+    
 
