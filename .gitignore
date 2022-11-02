@@ -4,6 +4,8 @@
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.pyc
+website/__pycache__/
 
 # Flask stuff:
 instance/
@@ -17,3 +19,4 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
