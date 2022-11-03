@@ -2,41 +2,14 @@
 {% import "bootstrap/form.html" as wtf %}
 
 {% block content %}
+
 <body style="background-color: #dadde6;">
-  <main>
+	<main>
 		<!-- <form> -->
 		<div class="container-fluid">
 			<form>
 				<div class="container">
 
-<<<<<<< HEAD
-<div class="container">
-  <div class="row mt-5 mb-3">
-    <div class="col-md-12">
-      <div class="float-left">
-        <h1 class="mb-0">{{destination.name}}</h1>
-        <p>Popular Events</p>
-      </div>
-
-      <div class="float-right text-right">
-        <p class="mb-0">1 AUD equals</p>
-        <h2 id="exchange-rate">0.62 EUR</h1>
-      </div>
-    </div>
-  </div>
-
-  <!-- Destination -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card my-3">
-        <div class="card-body">
-          <div class="media">
-            <img class="align-self-start mr-3" src="{{destination.image}}">
-            <div class="media-body">
-              <small class="font-weight-bold text-muted">Stay 2 nights</small>
-              <h5 class="mt-0">{{destination.name}}</h5>
-              <p>{{destination.description}}</p>
-=======
 					<div class="row">
 						<!-- header row -->
 						<div class="col-12">
@@ -71,38 +44,38 @@
 										<div id="myCarousel" class="carousel slide" data-ride="carousel">
 											<div class="carousel-inner">
 												<div class="carousel-item active" data-slide-number="0">
-													<img src="./img/pubg1.jpg" class="d-block w-100" alt="..."
-														data-remote="./img/pubg1.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg1.jpg" class="d-block w-100" alt="..."
+														data-remote="/static/img/pubg1.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery">
 												</div>
 												<div class="carousel-item" data-slide-number="1">
-													<img src="./img/pubg2.jpg" class="d-block w-100" alt="..."
-														data-remote="./img/pubg2.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg2.jpg" class="d-block w-100" alt="..."
+														data-remote="/static/img/pubg2.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery">
 												</div>
 												<div class="carousel-item" data-slide-number="2">
-													<img src="./img/pubg3.jpg" class="d-block img-fluid" alt="..."
-														data-remote="./img/pubg3.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg3.jpg" class="d-block img-fluid" alt="..."
+														data-remote="/static/img/pubg3.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery" style="max-width:50%;">
 												</div>
 												<div class="carousel-item" data-slide-number="3">
-													<img src="./img/pubg4.jpg" class="d-block img-fluid" alt="..."
-														data-remote="./img/pubg4.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg4.jpg" class="d-block img-fluid" alt="..."
+														data-remote="/static/img/pubg4.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery" style="max-width:50%;">
 												</div>
 												<div class="carousel-item" data-slide-number="3">
-													<img src="./img/pubg5.jpg" class="d-block w-100" alt="..."
-														data-remote="./img/pubg5.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg5.jpg" class="d-block w-100" alt="..."
+														data-remote="/static/img/pubg5.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery" style="max-width:50%;">
 												</div>
 												<div class="carousel-item" data-slide-number="3">
-													<img src="./img/pubg6.jpg" class="d-block w-100" alt="..."
-														data-remote="./img/pubg6.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg6.jpg" class="d-block w-100" alt="..."
+														data-remote="/static/img/pubg6.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery">
 												</div>
 												<div class="carousel-item" data-slide-number="3">
-													<img src="./img/pubg7.jpg" class="d-block w-100" alt="..."
-														data-remote="./img/pubg7.jpg" data-type="image" data-toggle="lightbox"
+													<img src="/static/img/pubg7.jpg" class="d-block w-100" alt="..."
+														data-remote="/static/img/pubg7.jpg" data-type="image" data-toggle="lightbox"
 														data-gallery="example-gallery">
 												</div>
 											</div>
@@ -116,23 +89,23 @@
 													<div class="row mx-0">
 														<div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected"
 															data-target="#myCarousel" data-slide-to="0">
-															<img src="./img/pubg1.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg1.jpg" class="img-fluid" alt="...">
 														</div>
 														<div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="1">
-															<img src="./img/pubg2.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg2.jpg" class="img-fluid" alt="...">
 														</div>
 														<div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="2">
-															<img src="./img/pubg3.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg3.jpg" class="img-fluid" alt="...">
 														</div>
 														<div id="carousel-selector-3" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="3">
-															<img src="./img/pubg4.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg4.jpg" class="img-fluid" alt="...">
 														</div>
 														<div id="carousel-selector-4" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="4">
-															<img src="./img/pubg5.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg5.jpg" class="img-fluid" alt="...">
 														</div>
 														<div class="col-2 px-1 py-2"></div>
 													</div>
@@ -141,11 +114,11 @@
 													<div class="row mx-0">
 														<div id="carousel-selector-6" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="5">
-															<img src="./img/pubg6.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg6.jpg" class="img-fluid" alt="...">
 														</div>
 														<div id="carousel-selector-7" class="thumb col-4 col-sm-2 px-1 py-2"
 															data-target="#myCarousel" data-slide-to="6">
-															<img src="./img/pubg7.jpg" class="img-fluid" alt="...">
+															<img src="/static/img/pubg7.jpg" class="img-fluid" alt="...">
 														</div>
 														<div class="col-2 px-1 py-2"></div>
 														<div class="col-2 px-1 py-2"></div>
@@ -168,12 +141,6 @@
 
 									</div> <!-- /row -->
 								</div> <!-- /container -->
-
-								<!-- <div class="text-center p-3">
-										<button type="button" class="btn btn-primary">
-											OPEN BOOKING PAGE
-										</button>
-									</div> -->
 							</div>
 						</div>
 
@@ -185,33 +152,12 @@
 										<input class="form-control" type="text" placeholder="{{destination.name}}" readonly>
 									</div>
 
-									<!-- <div class="form-group">
-										<label style="font-weight: bold;">Name(s) of artists performing in event</label>
-										<input class="form-control" type="text" placeholder="Jisoo, Jennie, Rosé, Lisa" readonly>
-
-									</div> -->
-
 									<div class="form-group">
 										<label style="font-weight: bold;">Event Description</label>
 										<p><small>Let your audience know what your event is about!</small></p>
 										<textarea class="form-control" readonly rows="4" id="description" type="text"
 											placeholder="{{destination.description}}"></textarea>
 									</div>
-
-									<!-- <div class="form-group">
-										<label style="font-weight: bold;">Genre of event</label> -->
-										<!-- <input class="form-control" type="text" placeholder="Pop, Dance/Electronic Dance Music, Hip-Hop/Rap, trap" readonly> -->
-
-										<!-- <textarea class="form-control" readonly rows="4" id="genre" type="text" placeholder="Pop,
-Dance/Electronic Dance Music
-Hip-Hop/Rap
-trap"></textarea>
-									</div> -->
-
-									<!-- <div class="form-group">
-										<label style="font-weight: bold;">The venue</label>
-										<input class="form-control" type="text" placeholder="PUBG MOBILE" readonly>
-									</div> -->
 
 									<div class="form-group">
 										<label style="font-weight: bold;">Date & Time</label>
@@ -221,24 +167,20 @@ trap"></textarea>
 
 									<div class="form-group">
 										<label style="font-weight: bold;">Number of available tickets</label>
-										<input type="number" class="form-control" id="" placeholder="{{destination.ticket_num}}" readonly>
+										<input type="number" class="form-control" id="" placeholder="{{destination.ticket_num}}"
+											readonly>
 									</div>
 
 									<label style="font-weight: bold;">Ticket Price</label>
 									<div class="form-group">
-										<!-- <label for=""><small>$veteran</small></label> -->
-										<input type="number" class="form-control" id="" placeholder="${{destination.ticket_price}}" readonly>
-										<!-- <label for=""><small>$adult</small></label>
-										<input type="number" class="form-control" id="" placeholder="$5" readonly>
-										<label for=""><small>$concession</small></label>
-										<input type="number" class="form-control" id="" placeholder="$3" readonly>
-										<label for=""><small>$child</small></label>
-										<input type="number" class="form-control" id="" placeholder="N/A" readonly> -->
+										<input type="number" class="form-control" id=""
+											placeholder="${{destination.ticket_price}}" readonly>
 									</div>
 
 									<div class="form-group">
 										<label style="font-weight: bold;">Event status</label>
-										<input class="form-control" type="text" placeholder="{{destination.Event_status}}" readonly>
+										<input class="form-control" type="text" placeholder="{{destination.Event_status}}"
+											readonly>
 									</div>
 								</div>
 							</div>
@@ -247,22 +189,20 @@ trap"></textarea>
 					<div class="row text-center p-4">
 						<!-- button row -->
 						<div class="col-md-12">
-              {% if current_user.is_authenticated %}
-              <a href="{{ url_for('destination.booking', destination=destination.id) }}" class="btn btn-lg btn-primary v-mar px-3 w-50">Book Now</a>
+							{% if current_user.is_authenticated %}
+							<a href="{{ url_for('destination.booking', destination=destination.id) }}"
+								class="btn btn-lg btn-primary v-mar px-3 w-50">Book Now</a>
 
-  
-              <a class="btn btn-lg btn-danger" href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a> 
 
-              <a class="btn btn-lg btn-success" href="{{ url_for('destination.edit_post', id=destination.id) }}">Edit Event</a>
+							<a class="btn btn-lg btn-danger"
+								href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a>
 
-            {% else %}
-              <p>You Must be Logged In to book this event</p>
-            {% endif %}
-							<!-- <a class="btn btn-lg btn-primary v-mar px-3 w-50" href="./user_booking.html" role="button">Book Event</a> -->
+							<a class="btn btn-lg btn-success"
+								href="{{ url_for('destination.edit_post', id=destination.id) }}">Edit Event</a>
 
-							<!-- <button type="button" class="btn btn-lg btn-primary v-mar px-3">Book Event</button> -->
-							<!-- <button type="button" class="btn btn-lg btn-danger v-mar">Reject Changes</button> -->
-							<!-- <button type="button" class="btn btn-lg btn-success v-mar">Approve Changes</button> -->
+							{% else %}
+							<p>You Must be Logged In to book this event</p>
+							{% endif %}
 						</div>
 					</div><!-- end button row -->
 
@@ -282,96 +222,25 @@ trap"></textarea>
 	</main>
 
 </body>
-<div class="container">  
-    <!-- <div class="row mt-5 mb-3">  
-      <div class="col-md-12">  
-        <div class="float-left">  
-          <h1 class="mb-0">{{destination.name}}</h1>  
-          <p>Popular Events</p>  
-        </div>  
- 
-        <div class="float-right text-right">  
-          <p class="mb-0">1 AUD equals</p>  
-          <h2 id="exchange-rate">0.62 EUR</h1>  
-        </div>  
-      </div>  
-    </div>   -->
-    <!-- Destination --> 
-    <!-- <div class="row">  
-      <div class="col-md-12">  
-        <div class="card my-3">  
-          <div class="card-body">  
-            <div class="media">  
-              <img class="align-self-start mr-3" src="{{destination.image}}">  
-              <div class="media-body">  
-                <small class="font-weight-bold text-muted">Stay 2 nights</small>  
-                <h5 class="mt-0">{{destination.name}}</h5>  
-                <p>{{destination.description}}</p>
-                
->>>>>>> 34884faa09c5aa39209c315027ed3935735c02ca
 
+<hr>
 
-<<<<<<< HEAD
-                {% if current_user.is_authenticated %}
-                  <a href="{{ url_for('destination.booking', destination=destination.id) }}" class="btn btn-danger">Book Now</a>
-=======
+<!-- Comments -->
+<div class="row">
+	<div class="col-md-12">
+		<h2>Comments</h1>
+	</div>
+</div>
 
-              {% if current_user.is_authenticated %}
-              <a href="#" class="btn btn-danger">Book Now</a>
->>>>>>> 9485ef8a89f18cd3b544e44440a21191f4db71d5
-
-
-              <a class="btn btn" href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a>
-              <a class="btn btn" href="{{ url_for('destination.edit_post', id=destination.id) }}">Edit Event</a>
-
-<<<<<<< HEAD
-              {% else %}
-              <p>You Must be Logged In to book this event</p>
-              {% endif %}
-=======
-                {% else %}
-                  <p>You Must be Logged In to book this event</p>
-                {% endif %}
-
-                
-              </div>  
-            </div>  
-          </div>  
-        </div>  
-      </div>  
-    </div>      -->
- 
->>>>>>> 34884faa09c5aa39209c315027ed3935735c02ca
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <hr>
-
-  <!-- Comments -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Comments</h1>
-    </div>
-  </div>
-
-  <div class="row border-bottom">
-    {{wtf.render_form(form,"/events/{0}/comment".format(destination.id))}}
-    {% for comment in destination.comments %}
-    <div class="col-md-12">
-      <b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at.strftime("%d %B,%Y")}}</span></b>
-      <p>{{comment.text}}</p>
-    </div>
-    {% endfor %}
-  </div>
+<div class="row border-bottom">
+	{{wtf.render_form(form,"/events/{0}/comment".format(destination.id))}}
+	{% for comment in destination.comments %}
+	<div class="col-md-12">
+		<b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at.strftime("%d %B,%Y")}}</span></b>
+		<p>{{comment.text}}</p>
+	</div>
+	{% endfor %}
+</div>
 </div>
 
 {% endblock %}
