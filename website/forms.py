@@ -14,8 +14,8 @@ class DestinationForm(FlaskForm):
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
   #Have to change fields and add vars in class in models.py
-  ticket_num = IntegerField('Number of Tickets:', validators=[InputRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "Number of Available Tickets"})
-  ticket_price = IntegerField('Price of Each Ticket:', validators=[InputRequired(), NumberRange(min=0, max=100)], render_kw={"placeholder": "Price Per Ticket (AUD ONLY)"})
+  ticket_num = IntegerField('Number of Tickets:', validators=[InputRequired(), NumberRange(min=0, max=25000)], render_kw={"placeholder": "Number of Available Tickets"})
+  ticket_price = IntegerField('Price of Each Ticket:', validators=[InputRequired(), NumberRange(min=0, max=500)], render_kw={"placeholder": "Price Per Ticket (AUD ONLY)"})
   event_date = DateTimeLocalField('When is this Event Happening?', validators=[InputRequired('Enter Time Only')], render_kw={"placeholder": "Offical Start Time and Date"}, format='%Y-%m-%dT%H:%M')
   starting_date = DateTimeLocalField('When are tickets opening?', validators=[InputRequired()], render_kw={"placeholder": "Date of Ticket Release"}, format='%Y-%m-%dT%H:%M')
   closing_date = DateTimeLocalField('When are tickets closing?', render_kw={"placeholder": "Date of Ticket closure"}, validators=[InputRequired()], format='%Y-%m-%dT%H:%M')
@@ -51,7 +51,7 @@ class CommentForm(FlaskForm):
   
   
 class BookingForm(FlaskForm):
-  ticket_num = IntegerField('Number of Tickets:', validators=[InputRequired(), NumberRange(min=0, max=10)], render_kw={"placeholder": "Number of Available Tickets"})
+  ticket_num = IntegerField('Number of Tickets:', validators=[InputRequired(), NumberRange(min=0, max=1000)], render_kw={"placeholder": "Number of Available Tickets"})
   submit = SubmitField('Book')
 
   
