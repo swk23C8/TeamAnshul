@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import Destination, Comment, Booking
 from .forms import DestinationForm, CommentForm, BookingForm
 from . import db, app
-import os
+import os, re
 from werkzeug.utils import secure_filename
 #additional import:
 from flask_login import login_required, current_user
@@ -141,33 +141,50 @@ def booking(destination):
 @bp.route('/delete/<int:id>', methods = ['GET','DELETE'])
 @login_required
 def delete_show(id):
-  post_to_delete = Destination.query.get_or_404(id).id
+  post_to_delete = Destination.query.get_or_404(id).poster
+  test_var = str(post_to_delete)
+  r1 = re.findall("([0-9]+)",test_var)[0]
+  print('Start Test')
+  print(r1)
+  print('End Test')
   id = current_user.id
-
-  if id == post_to_delete:
-
+  print(id)
+  if id == int(r1):
     destination = Destination.query.filter_by(id=id).first()
+    booking_ = Booking.query.filter_by(event_id=id).first()
+    print(destination)
+    print(booking_)
     # create the comment form
-    db.session.delete(destination)
+    db.session.delete(destination) 
+    
+    if booking_ != None:
+      db.session.delete(booking_)
+      
     db.session.commit()
     # Notify User and redirect them back to the main page.
-    #flash("Event has been deleted.")
+    flash("Event has been deleted.")
     return redirect(url_for('main.index'))
     
 
   else:
+      print("Do not match")
       return jsonify(message='To delete this, you must be the creator of this Event.'), 200
 
 # Updating the event 
 @bp.route('/edit/<int:id>', methods = ['GET','POST'])
 @login_required
 def edit_post(id):
-  
-  post_to_delete = Destination.query.get_or_404(id).id
+  post_to_delete = Destination.query.get_or_404(id).poster
+  test_var = str(post_to_delete)
+  r1 = re.findall("([0-9]+)",test_var)[0]
+  print('Start Test')
+  print(r1)
+  print('End Test')
   id = current_user.id
   print(id)
-  print(post_to_delete)
-  if id == post_to_delete:
+   
+  if id == int(r1):
+    print('Its in the condition.')
     post = Destination.query.get_or_404(id)
     form = DestinationForm()
     if form.validate_on_submit():

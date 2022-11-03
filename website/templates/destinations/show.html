@@ -248,7 +248,7 @@ trap"></textarea>
 						<!-- button row -->
 						<div class="col-md-12">
               {% if current_user.is_authenticated %}
-              <a href="#" class="btn btn-lg btn-primary v-mar px-3 w-50">Book Now</a>
+              <a href="{{ url_for('destination.booking', destination=destination.id) }}" class="btn btn-lg btn-primary v-mar px-3 w-50">Book Now</a>
 
   
               <a class="btn btn-lg btn-danger" href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a> 
