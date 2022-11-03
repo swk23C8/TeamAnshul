@@ -34,7 +34,7 @@
 
 
                 {% if current_user.is_authenticated %}
-                  <a href="#" class="btn btn-danger">Book Now</a>
+                  <a href="{{ url_for('destination.booking', destination=destination.id) }}" class="btn btn-danger">Book Now</a>
 
 
                   <a class="btn btn" href="{{ url_for('destination.delete_show', id=destination.id) }}">Delete Event</a>

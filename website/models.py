@@ -46,6 +46,17 @@ class Destination(db.Model):
 
     def __repr__(self): #string print method
         return "<Name: {}>".format(self.name)
+    
+    
+class Booking(db.Model):
+    __tablename__ = 'bookings'
+    event_id = db.Column(db.Integer, primary_key=True)
+    event_price = db.Column(db.Integer())
+    event_qty = db.Column(db.Integer())
+    event_booking_date = db.Column(db.DateTime, default=datetime.now())
+    #add the foreign keys
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    destination_id = db.Column(db.Integer, db.ForeignKey('destinations.id'))
 
 class Comment(db.Model):
     __tablename__ = 'comments'

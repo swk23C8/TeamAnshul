@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .models import Destination, Comment
+from .models import Destination, Comment, Booking
 from .forms import DestinationForm, CommentForm, BookingForm
 from . import db, app
 import os
@@ -56,9 +56,9 @@ def check_upload_file(form):
   #get the current path of the module file… store image file relative to this path  
   BASE_PATH=os.path.dirname(__file__)
   #upload file location – directory of this file/static/image
-  upload_path=os.path.join(BASE_PATH,'static/image',secure_filename(filename))
+  upload_path=os.path.join(BASE_PATH,'static/img',secure_filename(filename))
   #store relative path in DB as image location in HTML is relative
-  db_upload_path='/static/image/' + secure_filename(filename)
+  db_upload_path='/static/img/' + secure_filename(filename)
   #save the file and return the db upload path  
   fp.save(upload_path)
   return db_upload_path
@@ -85,6 +85,54 @@ def comment(destination):
     # using redirect sends a GET request to destination.show
     return redirect(url_for('destination.show', id=destination))
   
+  
+  
+#Create Booking for user    
+@bp.route('/booking/<destination>', methods = ['GET', 'POST'])  
+@login_required
+def booking(destination):
+  message = None
+  form = BookingForm()  
+  #get the destination object associated to the page and the booking
+  destination_obj = Destination.query.filter_by(id=destination).first().id
+  destination_tickets_price = Destination.query.filter_by(id=destination).first().ticket_price
+  destination_tickets_remaining = Destination.query.filter_by(id=destination).first().ticket_num
+  #Check if vars are running through
+  print(destination_obj)
+  print(current_user.id)
+  print(destination_tickets_remaining)
+  print(destination_tickets_price)
+
+  if form.validate_on_submit():
+    
+    if form.ticket_num.data > destination_tickets_remaining:
+        flash("You've exceeded the number of tickets which are available for this event")
+    
+    elif destination_tickets_remaining == 0:
+        flash("Oh no, you're too late! All tickets are sold out :(")
+        db.session.query(Destination).filter(Destination.id == destination).\
+          update({'Event_status': 'Sold-out'})
+          # Update Event_status to sold-out doesnt work :(
+      
+    else:
+      #read the Booking from the form
+      booking = Booking(event_qty=form.ticket_num.data,
+                        destination_id = destination_obj,
+                        user_id = current_user.id,
+                        event_price = destination_tickets_price,
+                        )
+      db.session.query(Destination).filter(Destination.id == destination).\
+        update({'ticket_num': destination_tickets_remaining - form.ticket_num.data})
+        
+      db.session.add(booking) 
+      db.session.commit()
+      print("Your Booking has been added") 
+  if message != None:
+    print(message)
+    flash(message)
+  # using redirect sends a GET request to destination.show
+  return render_template('booking.html', form=form)
+    
 
 
   
