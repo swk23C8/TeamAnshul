@@ -17,11 +17,11 @@
 								{{destination.name}}
 							</h2>
 							<h4>
-								Tickets Available from {{destination.starting_date}}!!!
+								Tickets Available from {{destination.starting_date.strftime("%d %B, %Y")}} at {{destination.starting_date.strftime("%H:%M:%S")}}!!!
 							</h4>
 							<p>
 								<em>
-									Last Day to Buy Tickets at {{destination.closing_date}}!!
+									Last Day to Buy Tickets at {{destination.closing_date.strftime("%d %B, %Y")}} at {{destination.closing_date.strftime("%H:%M:%S")}}!!
 								</em>
 							</p>
 						</div>
