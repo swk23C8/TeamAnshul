@@ -81,7 +81,7 @@
 {% endblock %} {% block content %}
 <!-- steps section -->
 <section class="steps">
-	<div class="container-fluid py-3 px-5">
+	<div class="container py-3 px-5">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card text-center">
@@ -122,101 +122,128 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- </div> -->
+			<!-- </div> -->
+			<!-- </div> -->
 
-		<!-- link to event creation -->
-		<div class="d-flex justify-content-center text-center pt-3">
-			<a style="display:inline-block;" href="{{ url_for('destination.create') }}">
-				<!-- center image -->
-				<img src="static/img/ticket-btn.png" alt="Register">
-			</a>
-		</div>
+			<!-- link to event creation -->
+			<div class="d-flex justify-content-center text-center pt-3">
+				<a style="display:inline-block;" href="{{ url_for('destination.create') }}">
+					<!-- center image -->
+					<img src="static/img/ticket-btn.png" alt="Register">
+				</a>
+			</div>
 
 </section>
 <!-- filter events by genre -->
-<h2 style = "margin-top: 15px; float: center; size: 30px;" class ="text-center"><b>Filter Events Based on Genre</b></h2>
-<div class="row">
-	<div class="col-sm">
+<h2 style="margin-top: 15px; float: center; size: 30px;" class="text-center"><b>Filter Events Based on Genre</b></h2>
+<div class="container py-3 px-5">
+	<div class="row">
+		<div class="col-sm">
 
 
-  <div class = "mytabs">
-	<input type="radio" id="tabfree" name="mytabs" checked="checked">
-	<label for="tabfree" style = " font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">K-POP</label>
-	<div class="tab">
-	  <h2 style="color: gray; size: 20px;">K-POP</h2>
-	  <!-- Card 1 in K-POP field -->
-	  <div class="card" style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto;">
-		<img src="static/img/Blackpink-logo.jpg" class="card-img-top" alt="Blackpink picture">
-		<div class="card-body">
-		  <h5 class="card-title">BLACKPINK - DU-DU-DU</h5>
-		  <p class="card-text">"Ddu-Du Ddu-Du" (Korean: 뚜두뚜두; RR: ttuduttudu) is a song recorded in Korean and Japanese by South Korean girl group Blackpink. It was released on June 15, 2018.</p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
+			<div class="mytabs">
+				<input type="radio" id="tabfree" name="mytabs" checked="checked">
+				<label for="tabfree"
+					style=" font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">K-POP</label>
+				<div class="tab">
+					<h2 style="color: gray; size: 20px;">K-POP</h2>
+					<!-- Card 1 in K-POP field -->
+					<div class="card" style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto;">
+						<img src="static/img/Blackpink-logo.jpg" class="card-img-top" alt="Blackpink picture">
+						<div class="card-body">
+							<h5 class="card-title">BLACKPINK - DU-DU-DU</h5>
+							<p class="card-text">"Ddu-Du Ddu-Du" (Korean: 뚜두뚜두; RR: ttuduttudu) is a song recorded in Korean
+								and
+								Japanese by South Korean girl group Blackpink. It was released on June 15, 2018.</p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+					<!-- Card 2 in K-POP field -->
+					<div class="card"
+						style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto; margin-top: 15px;">
+						<img src="static/img/Exy_picture.jpg" class="card-img-top" alt="EXY picture">
+						<div class="card-body">
+							<h5 class="card-title">Exy - Good Times</h5>
+							<p class="card-text">Chu So-jung, better known by her stage name Exy, is a South Korean rapper,
+								singer
+								and songwriter. She debuted as a member and leader of South Korean-Chinese girl group.</p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+				</div>
+
+				<input type="radio" id="tabsilver" name="mytabs">
+				<label for="tabsilver"
+					style=" font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">Rap</label>
+				<div class="tab">
+					<h2 style="color: gray; size: 20px;">Rap</h2>
+					<!-- Card 1 in Rap field-->
+					<div class="card" style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto;">
+						<img src="static/img/Em_photo.jpg" class="card-img-top" alt="Blackpink picture">
+						<div class="card-body">
+							<h5 class="card-title">Eminem - Lose Yourself</h5>
+							<p class="card-text">Marshall Bruce Mathers III, known professionally as Eminem, is an American
+								rapper. He is credited with popularizing hip hop in middle America and is critically acclaimed
+								as
+								one of the greatest rapper. He is credited with popularizing hip hop in America.</p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+					<div class="card"
+						style="width: 18rem; display: flex; margin-left: auto; margin-right: auto; margin-top: 15px;">
+						<img src="static/img/Travis.jpg" class="card-img-top" alt="Blackpink picture">
+						<div class="card-body">
+							<h5 class="card-title">Travis Scott - TKN</h5>
+							<p class="card-text">Jacques Bermon Webster II (born April 30, 1991), better known by his stage
+								name
+								Travis Scott (formerly stylized as Travi$ Scott), is an American rapper, singer, songwriter, and
+								record producer.His stage name is the namesake of a favorite uncle. </p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+
+
+				</div>
+
+				<input type="radio" id="tabgold" name="mytabs">
+				<label for="tabgold"
+					style=" font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">Classical
+					Music</label>
+				<div class="tab">
+					<h2 style="color: gray; size: 20px;">Classical Music</h2>
+					<!-- Card 1 in Classical field -->
+					<div class="card" style="width: 18rem; display: flex; margin-left: auto; margin-right: auto;">
+						<img src="static/img/classical.jpg" class="card-img-top" alt="Classical picture">
+						<div class="card-body">
+							<h5 class="card-title">Ensemble Q - Mozart, Mills & Mahler</h5>
+							<p class="card-text">Magic moments will fill the Concert Hall with the incredible arrangement by
+								Klaus
+								Simon of Mahler’s Symphony No 4. The paring down to 14 parts allows each line to be cherished
+								and
+								played soloistically, yet brings the house down.</p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+					<!-- Card 2 in K-Classical field -->
+					<div class="card"
+						style="width: 18rem; display: flexk; margin-left: auto; margin-right: auto; margin-top: 15px;">
+						<img src="static/img/ling_ling.jpg" class="card-img-top" alt="EXY picture">
+						<div class="card-body">
+							<h5 class="card-title">TwoSet Violin - Viola Gang</h5>
+							<p class="card-text">TwoSet Violin is a musical comedy duo consisting of Australian violinists
+								Brett
+								Yang and Eddy Chen. The pair is best known for their musical comedy on their YouTube channel,
+								which
+								has reached over 3.8 million subscribers.</p>
+							<a href="#" class="btn btn-primary">Further Information:</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
-	  </div>
-	  <!-- Card 2 in K-POP field -->
-	  <div class="card" style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto; margin-top: 15px;">
-		<img src="static/img/Exy_picture.jpg" class="card-img-top" alt="EXY picture">
-		<div class="card-body">
-		  <h5 class="card-title">Exy - Good Times</h5>
-		  <p class="card-text">Chu So-jung, better known by her stage name Exy, is a South Korean rapper, singer and songwriter. She debuted as a member and leader of South Korean-Chinese girl group.</p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
-		</div>
-	  </div>
 	</div>
-
-	<input type="radio" id="tabsilver" name="mytabs">
-	<label for="tabsilver" style = " font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">Rap</label>
-	<div class="tab">
-	  <h2 style="color: gray; size: 20px;">Rap</h2>
-	  <!-- Card 1 in Rap field-->
-	  <div class="card" style="width: 18rem; display: flexbox; margin-left: auto; margin-right: auto;">
-		<img src="static/img/Em_photo.jpg" class="card-img-top" alt="Blackpink picture">
-		<div class="card-body">
-		  <h5 class="card-title">Eminem - Lose Yourself</h5>
-		  <p class="card-text">Marshall Bruce Mathers III, known professionally as Eminem, is an American rapper. He is credited with popularizing hip hop in middle America and is critically acclaimed as one of the greatest rapper. He is credited with popularizing hip hop in America.</p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
-		</div>
-	  </div>
-	  <div class="card" style="width: 18rem; display: flex; margin-left: auto; margin-right: auto; margin-top: 15px;">
-		<img src="static/img/Travis.jpg" class="card-img-top" alt="Blackpink picture">
-		<div class="card-body">
-		  <h5 class="card-title">Travis Scott - TKN</h5>
-		  <p class="card-text">Jacques Bermon Webster II (born April 30, 1991), better known by his stage name Travis Scott (formerly stylized as Travi$ Scott), is an American rapper, singer, songwriter, and record producer.His stage name is the namesake of a favorite uncle. </p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
-		</div>
-	  </div>
-	  
-
-	</div>
-
-	<input type="radio" id="tabgold" name="mytabs">
-	<label for="tabgold" style = " font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; " >Classical Music</label>
-	<div class="tab">
-	  <h2 style="color: gray; size: 20px;">Classical Music</h2>
-		<!-- Card 1 in Classical field -->
-	  <div class="card" style="width: 18rem; display: flex; margin-left: auto; margin-right: auto;">
-		<img src="static/img/classical.jpg" class="card-img-top" alt="Classical picture">
-		<div class="card-body">
-		  <h5 class="card-title">Ensemble Q - Mozart, Mills & Mahler</h5>
-		  <p class="card-text">Magic moments will fill the Concert Hall with the incredible arrangement by Klaus Simon of Mahler’s Symphony No 4. The paring down to 14 parts allows each line to be cherished and played soloistically, yet brings the house down.</p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
-		</div>
-	  </div>
-	  <!-- Card 2 in K-Classical field -->
-	  <div class="card" style="width: 18rem; display: flexk; margin-left: auto; margin-right: auto; margin-top: 15px;">
-		<img src="static/img/ling_ling.jpg" class="card-img-top" alt="EXY picture">
-		<div class="card-body">
-		  <h5 class="card-title">TwoSet Violin - Viola Gang</h5>
-		  <p class="card-text">TwoSet Violin is a musical comedy duo consisting of Australian violinists Brett Yang and Eddy Chen. The pair is best known for their musical comedy on their YouTube channel, which has reached over 3.8 million subscribers.</p>
-		  <a href="#" class="btn btn-primary">Further Information:</a>
-		</div>
-	  </div>
-	</div>
-
-	</div>
-  </div>
-	</div>
+</div>
 <!-- content section -->
 <section class="content">
 	<h2 style="size: 30px;">List of Events / Search Results</h2>
@@ -260,7 +287,8 @@
 				<span class="card-media-body-heading">{{destination.name}}</span>
 				<div class="card-media-body-supporting-bottom">
 					<span class="card-media-body-supporting-bottom-text subtle">{{destination.description}}</span>
-					<span class="card-media-body-supporting-bottom-text subtle u-float-right">{{destination.event_date}}</span>
+					<span
+						class="card-media-body-supporting-bottom-text subtle u-float-right">{{destination.event_date}}</span>
 				</div>
 				<div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
 					<span class="card-media-body-supporting-bottom-text subtle">Tickets Left:
