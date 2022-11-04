@@ -65,7 +65,6 @@
 				<div class="col-md-8">
 					<div class="card shadow p-5 mb-1 bg-light">
 						<h1 class="text-center mb-3">Search for events...</h1>
-
 						<form class="d-flex">
 							<input class="form-control me-2" type="search" placeholder="Event Name.." aria-label="Search" />
 							<button class="btn btn-outline-success" type="submit">
@@ -81,7 +80,7 @@
 {% endblock %} {% block content %}
 <!-- steps section -->
 <section class="steps">
-	<div class="container py-3 px-5">
+	<div class="container-fluid py-3 px-5">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card text-center">
@@ -135,13 +134,17 @@
 
 </section>
 <!-- filter events by genre -->
-<h2 style="margin-top: 15px; float: center; size: 30px;" class="text-center"><b>Filter Events Based on Genre</b></h2>
-<div class="container py-3 px-5">
+<!-- <h2 style="margin-top: 15px; float: center; size: 30px;" class="text-center">
+	<b>Filter Events Based on Genre</b>
+</h2> -->
+<div class="container-fluid py-3 px-5">
 	<div class="row">
 		<div class="col-sm">
-
-
+			<h2 style="margin-top: 15px; float: center; size: 30px;" class="text-center">
+				<b>Filter Events Based on Genre</b>
+			</h2>
 			<div class="mytabs">
+
 				<input type="radio" id="tabfree" name="mytabs" checked="checked">
 				<label for="tabfree"
 					style=" font-size: 20px; border-radius: 4px; padding: 7px 17px; border: 2px solid; color: black; margin-right: 20px; ">K-POP</label>
