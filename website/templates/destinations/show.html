@@ -17,11 +17,13 @@
 								{{destination.name}}
 							</h2>
 							<h4>
-								Tickets Available from {{destination.starting_date.strftime("%d %B, %Y")}} at {{destination.starting_date.strftime("%H:%M:%S")}}!!!
+								Tickets Available from {{destination.starting_date.strftime("%d %B, %Y")}} at
+								{{destination.starting_date.strftime("%H:%M:%S")}}!!!
 							</h4>
 							<p>
 								<em>
-									Last Day to Buy Tickets at {{destination.closing_date.strftime("%d %B, %Y")}} at {{destination.closing_date.strftime("%H:%M:%S")}}!!
+									Last Day to Buy Tickets at {{destination.closing_date.strftime("%d %B, %Y")}} at
+									{{destination.closing_date.strftime("%H:%M:%S")}}!!
 								</em>
 							</p>
 						</div>
@@ -226,21 +228,23 @@
 <hr>
 
 <!-- Comments -->
-<div class="row">
-	<div class="col-md-12">
-		<h2>Comments</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Comments</h1>
+		</div>
 	</div>
 </div>
-
-<div class="row border-bottom">
-	{{wtf.render_form(form,"/events/{0}/comment".format(destination.id))}}
-	{% for comment in destination.comments %}
-	<div class="col-md-12">
-		<b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at.strftime("%d %B,%Y")}}</span></b>
-		<p>{{comment.text}}</p>
+<div class="container-fluid">
+	<div class="row border-bottom">
+		{{wtf.render_form(form,"/events/{0}/comment".format(destination.id))}}
+		{% for comment in destination.comments %}
+		<div class="col-md-12">
+			<b>{{comment.user.name}} <span class="ml-2 text-muted">{{comment.created_at.strftime("%d %B,%Y")}}</span></b>
+			<p>{{comment.text}}</p>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
-</div>
 </div>
 
 {% endblock %}
