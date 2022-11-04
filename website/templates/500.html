@@ -1,4 +1,30 @@
-<p>THERE WAS AN ERROR, OH NO. CMON. YOU GOT AN UNEXPECTED CONDITION THAT PREVENTED IT FROM FULLING THE REQUEST.</p>
-<a href="{{ url_for('main.index') }}">
-    <button class="btn btn-primary btn-lg">CLICK ON THIS</button>
-</a>
+{% extends "base.html" %}
+
+{% import "bootstrap/form.html" as wtf %}
+{% block content %}
+  <div class="container" style = "background-color: #F3F3F3;  box-shadow: 20px 20px 20px lightgrey; border-radius: 15px;">
+    <div class="row mt-5">
+      <div class="col-md-12">
+
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                    <h1 style="margin-left: auto; margin-right: auto;">500 Error Page:</h1>
+                    <p><br><b>Oh, no! You Broke the system.</b></br></p>
+                </div>
+            </div>    
+        </div>
+
+        <img src="static/img/Exy_500_page.jpg" class="card-img-top" alt="Blackpink picture">
+
+        <a href="{{ url_for('main.index') }}" class="btn btn-danger" style= "width:100%; height: 35px;margin-bottom:10px;margin-top:10px;"><b>Go Back to the Index Page</b></a>
+        
+        
+      </div>
+    </div>
+  </div>
+<br></br>
+
+
+{% endblock %}
